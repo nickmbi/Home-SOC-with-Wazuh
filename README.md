@@ -141,7 +141,7 @@ Created a Windows endpoint agent using the Wazuh Manager agent management utilit
 sudo /var/ossec/bin/manage_agents
 ```
 
-*Ref 7: Wazuh Agent Creation*
+
 
 #### Step 2: Generate Agent Key
 
@@ -173,7 +173,7 @@ ossec.conf
 client.keys
 ```
 
-*Ref 10: Agent Troubleshooting Process*
+
 
 #### Step 5: Configure Agent
 
@@ -183,13 +183,13 @@ Updated the agent configuration to use the correct Wazuh Manager IP address.
 <address>10.0.2.4</address>
 ```
 
-*Ref 11: Agent Configuration Update*
+
 
 #### Step 6: Import Agent Key
 
 Imported the generated enrollment key into the Windows endpoint and restarted the Wazuh Agent service.
 
-*Ref 12: Agent Enrollment Process*
+
 
 #### Step 7: Verify Agent Connection
 
@@ -200,7 +200,7 @@ Connected to the server
 Agent is now online
 ```
 
-*Ref 13: Successful Agent Connection*
+
 
 ---
 
