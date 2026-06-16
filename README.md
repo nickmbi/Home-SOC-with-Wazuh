@@ -1,1 +1,139 @@
-# Home-SOC-with-Wazuh
+# Wazuh-Home-SOC-Lab
+
+## Objective
+
+Home SOC using Wazuh. This project involved building a Security Operations Center (SOC) environment using an Ubuntu-based Wazuh Manager and a Windows 11 endpoint deployed in VirtualBox. The goal was to gain hands-on experience with endpoint monitoring, SIEM operations, agent deployment, log collection, security event analysis, file integrity monitoring, security configuration assessment, and threat detection using Wazuh.
+
+### Skills Learned
+
+* Built a functional Home SOC environment using Wazuh.
+* Installed and configured a Wazuh Manager on Ubuntu Linux.
+* Deployed and configured a Windows 11 endpoint agent.
+* Troubleshot agent enrollment, connectivity, and authentication issues.
+* Configured secure communication between Wazuh Manager and endpoint agents.
+* Monitored endpoint telemetry through the Wazuh dashboard.
+* Performed Security Configuration Assessment (SCA) scans against Windows 11.
+* Implemented File Integrity Monitoring (FIM) on monitored systems.
+* Investigated security events through Wazuh Discover and Dashboard views.
+* Gained experience with SIEM architecture, log analysis, endpoint monitoring, and threat detection workflows.
+
+### Tools Used
+
+* Wazuh Manager — Used as the central SIEM and security monitoring platform.
+* Ubuntu Linux — Hosted the Wazuh Manager and Wazuh Dashboard.
+* Windows 11 — Used as the monitored endpoint.
+* Wazuh Agent — Installed on Windows 11 to collect and forward telemetry.
+* VirtualBox — Used to host the virtual machines for the Home SOC environment.
+* Wazuh Dashboard — Used for security monitoring, investigations, and visualization.
+* Security Configuration Assessment (SCA) — Used to assess Windows security posture against CIS benchmarks.
+* File Integrity Monitoring (FIM) — Used to monitor file changes and endpoint activity.
+* Linux Terminal — Used for Wazuh management and agent administration.
+* PowerShell — Used for Windows endpoint configuration and troubleshooting.
+
+## Steps
+
+### 1: Ubuntu Wazuh Manager Deployment
+
+Created an Ubuntu virtual machine in VirtualBox and installed the Wazuh platform. This system served as the central SIEM, log collection server, and management console for the Home SOC environment.
+
+### 2: Wazuh Dashboard Access
+
+Verified successful deployment of the Wazuh Dashboard and accessed the web interface. This dashboard provided centralized visibility into security events, endpoint status, and monitoring capabilities.
+
+### 3: Windows 11 Endpoint Deployment
+
+Created a Windows 11 virtual machine in VirtualBox to serve as a monitored endpoint. This system generated telemetry that would later be collected and analyzed by Wazuh.
+
+### 4: Wazuh Agent Installation
+
+Downloaded and installed the Wazuh Agent on the Windows 11 endpoint. The agent was configured to communicate with the Wazuh Manager running on Ubuntu.
+
+<img src="INSERT_SCREENSHOT_HERE">
+
+*Ref 1: Wazuh Agent installation on the Windows 11 endpoint.*
+
+### 5: Agent Connectivity Troubleshooting
+
+Reviewed Wazuh agent logs and configuration files to identify connectivity issues. Initial troubleshooting focused on agent enrollment failures and manager communication errors.
+
+<img src="INSERT_SCREENSHOT_HERE">
+
+*Ref 2: Reviewing Wazuh agent logs during troubleshooting.*
+
+### 6: Wazuh Agent Configuration
+
+Modified the ossec.conf configuration file to specify the Wazuh Manager IP address and communication settings required for agent enrollment.
+
+<img src="INSERT_SCREENSHOT_HERE">
+
+*Ref 3: Editing the ossec.conf file on the Windows endpoint.*
+
+### 7: Agent Registration
+
+Used the Wazuh Manager's agent management utility to create and register a new Windows endpoint agent.
+
+<img src="INSERT_SCREENSHOT_HERE">
+
+*Ref 4: Creating a new agent on the Wazuh Manager.*
+
+### 8: Agent Key Extraction
+
+Generated and extracted an enrollment key from the Wazuh Manager. This key was required to securely authenticate the Windows endpoint with the manager.
+
+<img src="INSERT_SCREENSHOT_HERE">
+
+*Ref 5: Extracting the Wazuh agent enrollment key.*
+
+### 9: Agent Enrollment
+
+Imported the enrollment key into the Windows endpoint and restarted the Wazuh Agent service to establish communication with the manager.
+
+### 10: Successful Agent Connection
+
+Verified successful communication between the Windows endpoint and the Wazuh Manager. The endpoint began forwarding telemetry and security data.
+
+<img src="INSERT_SCREENSHOT_HERE">
+
+*Ref 6: Wazuh agent successfully connected to the manager.*
+
+### 11: Active Agent Verification
+
+Used Wazuh management utilities to confirm that the Windows endpoint was enrolled, authenticated, and reporting as an active agent.
+
+<img src="INSERT_SCREENSHOT_HERE">
+
+*Ref 7: Active Windows endpoint visible within Wazuh.*
+
+### 12: Dashboard Monitoring
+
+Accessed the Wazuh Dashboard Overview page to verify endpoint visibility and monitor security events generated by the Windows system.
+
+<img src="INSERT_SCREENSHOT_HERE">
+
+*Ref 8: Wazuh Dashboard Overview showing active endpoint monitoring.*
+
+### 13: Security Event Collection
+
+Confirmed that security telemetry from the Windows endpoint was being collected and indexed within Wazuh Discover.
+
+<img src="INSERT_SCREENSHOT_HERE">
+
+*Ref 9: Windows endpoint telemetry successfully ingested into Wazuh.*
+
+### 14: Security Configuration Assessment
+
+Reviewed Security Configuration Assessment (SCA) results generated against the Windows 11 endpoint. These scans evaluated the system against CIS benchmark recommendations.
+
+### 15: File Integrity Monitoring
+
+Verified that File Integrity Monitoring was enabled and collecting endpoint file activity data for security monitoring purposes.
+
+### 16: Threat Detection and Investigation
+
+Used Wazuh Discover and Dashboard views to investigate collected events, review alerts, and gain visibility into endpoint activity.
+
+### 17: Final Home SOC Architecture
+
+Completed the Home SOC environment. The final architecture consisted of an Ubuntu Wazuh Manager, Wazuh Dashboard, Windows 11 monitored endpoint, Wazuh Agent, Security Configuration Assessment, File Integrity Monitoring, and centralized log analysis capabilities.
+
+#CyberSecurity #SOC #HomeSOC #Wazuh #SIEM #BlueTeam #ThreatDetection #ThreatHunting #LogAnalysis #SecurityMonitoring #Windows11 #Ubuntu #VirtualBox #EndpointSecurity #SecurityOperations #DFIR #SOCAnalyst #InformationSecurity #CyberDefense #Homelab
