@@ -147,9 +147,6 @@ sudo /var/ossec/bin/manage_agents
 
 Generated an authentication key for the Windows endpoint.
 
-```bash
-sudo /var/ossec/bin/manage_agents
-```
 
 #### Step 3: Install Agent
 
