@@ -247,4 +247,4 @@ Completed a functioning Home SOC environment consisting of:
 * Endpoint Monitoring
 * Security Event Analysis
 
-The completed Home SOC provides centralized visibility into endpoint activity and serves as a foundation for future enhancements including Sysmon integration, Atomic Red Team testing, custom detection rules, active response, and threat hunting exercises.
+The completed Home SOC provides centralized visibility into endpoint activity and serves as a foundation for future enhancements including Sysmon integration, Red Team testing, custom detection rules, active response, and threat hunting exercises.
