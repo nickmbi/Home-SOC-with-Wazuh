@@ -4,17 +4,6 @@
 
 Home SOC using Wazuh. This project involved building a Security Operations Center (SOC) environment using VirtualBox, Ubuntu Server, Wazuh, and a Windows 11 endpoint. The goal was to gain hands-on experience with SIEM deployment, endpoint monitoring, agent management, log collection, security event analysis, and Security Configuration Assessment (SCA) using Wazuh.
 
-### Skills Learned
-
-* Built a Home SOC using Wazuh and Windows 11.
-* Installed and configured a Wazuh Manager on Ubuntu Linux.
-* Deployed and enrolled a Windows 11 endpoint into Wazuh.
-* Troubleshot agent enrollment, networking, and authentication issues.
-* Configured centralized log collection and endpoint monitoring.
-* Analyzed security events through the Wazuh Dashboard.
-* Performed Security Configuration Assessment (SCA) against a Windows endpoint.
-* Validated agent communication and telemetry collection.
-* Gained practical experience with SIEM administration and SOC workflows.
 
 ### Tools Used
 
