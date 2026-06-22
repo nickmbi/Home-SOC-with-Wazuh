@@ -1,3 +1,4 @@
+
 # Wazuh-Home-SOC-Lab
 
 ## Objective
@@ -60,6 +61,7 @@ sudo apt upgrade -y
 #### Step 1: Download Wazuh Installer
 
 Downloaded the Wazuh all-in-one installation script.
+
 <img width="1280" height="854" alt="wazuh instalation" src="https://github.com/user-attachments/assets/1d8ff485-0f89-4c80-a885-95022f423ac9" />
 
 ```bash
@@ -93,7 +95,9 @@ Password: ********
 #### Step 4: Access Dashboard
 
 Verified successful deployment of the Wazuh Dashboard and logged in through the web interface.
-<img width="1280" height="854" alt="Ubuntu is running" src="https://github.com/user-attachments/assets/691f5331-4ffa-4c55-8de6-4219fee3c354" />
+
+<img width="1280" height="854" alt="Ubuntu is running" src="https://github.com/user-attachments/assets/f293a316-5ad2-4191-b3f4-2e0d8e217412" />
+
 
 ```bash
 hostname -I
@@ -199,7 +203,9 @@ Confirmed the Windows endpoint appeared as an active agent within Wazuh.
 ```bash
 sudo /var/ossec/bin/agent_control -l
 ```
-<img width="1531" height="920" alt="Agent connected" src="https://github.com/user-attachments/assets/2393628c-1dfa-4aa1-91e1-1f35aaf8ee33" />
+
+<img width="1531" height="920" alt="Agent connected" src="https://github.com/user-attachments/assets/ea2d8546-ce01-4417-9786-cb62bc21f52e" />
+
 
 
 #### Step 2: Review Security Events
@@ -218,6 +224,7 @@ Reviewed Security Configuration Assessment (SCA) results generated against the W
 
 Verified endpoint visibility through the Wazuh Dashboard.
 
+<img width="1531" height="920" alt="Wazuh Sysmon SOC Setup - Google Chrome 6_16_2026 10_52_11 PM" src="https://github.com/user-attachments/assets/b2eaf3d3-9540-4b32-82f6-849a159787a6" />
 
 ---
 
