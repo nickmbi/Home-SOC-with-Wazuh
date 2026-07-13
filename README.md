@@ -2,7 +2,7 @@
 
 ## Overview
 
-Built a Home Security Operations Center (SOC) using VirtualBox, Ubuntu Server, Wazuh, Microsoft Sysmon, and a Windows 11 endpoint. The project focused on deploying a SIEM, monitoring endpoint activity, collecting Windows security logs, integrating Sysmon telemetry, and analyzing security events through the Wazuh Dashboard.
+Built a Home Security Operations Center using VirtualBox, Ubuntu Server, Wazuh, Microsoft Sysmon, and a Windows 11 endpoint. The project focused on deploying a SIEM, monitoring endpoint activity, collecting Windows security logs, integrating Sysmon telemetry, and analyzing security events through the Wazuh Dashboard.
 
 
 ## Lab Architecture
