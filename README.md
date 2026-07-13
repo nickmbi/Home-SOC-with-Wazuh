@@ -23,7 +23,7 @@ Windows 11 Endpoint
 ```
 
 
-## Technologies Used
+## Tools Used
 
 - VirtualBox
 - Ubuntu Linux
