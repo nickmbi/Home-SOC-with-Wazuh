@@ -140,7 +140,7 @@ Generated PowerShell activity to confirm endpoint telemetry was being collected.
 
 
 
-# Skills Demonstrated
+# Skills Learned
 
 - SIEM Deployment
 - Linux Administration
