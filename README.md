@@ -1,159 +1,90 @@
+# Wazuh Home SOC Lab
 
-# Wazuh-Home-SOC-Lab
+## Overview
 
-## Objective
-
-Home SOC using Wazuh. This project involved building a Security Operations Center (SOC) environment using VirtualBox, Ubuntu Server, Wazuh, and a Windows 11 endpoint. The goal was to gain hands-on experience with SIEM deployment, endpoint monitoring, agent management, log collection, security event analysis, and Security Configuration Assessment (SCA) using Wazuh.
-
-
-### Tools Used
-
-* VirtualBox — Used to create and manage virtual machines.
-* Ubuntu Linux VM — Used to host the Wazuh platform.
-* Windows 11 VM — Used as the monitored endpoint.
-* Linux Terminal — Used for Wazuh administration and troubleshooting.
-* PowerShell — Used for agent deployment and endpoint troubleshooting.
-* Wazuh Manager — Used as the centralized SIEM platform.
-* Wazuh Dashboard — Used for security monitoring and investigations.
-* Wazuh Agent — Used to collect endpoint telemetry from Windows 11.
-* Security Configuration Assessment (SCA) — Used to evaluate endpoint security posture.
-
-## Steps
-
-### Phase 1: Build Ubuntu Wazuh Server
-
-#### Step 1: Install VirtualBox
-
-Downloaded and installed Oracle VirtualBox to host the virtual SOC environment.
-
-#### Step 2: Download Ubuntu Server
-
-Downloaded Ubuntu Server LTS and prepared it for deployment.
-
-#### Step 3: Create Ubuntu VM
-
-Created an Ubuntu virtual machine using:
-
-* 8GB RAM
-* 8 CPUs
-* 80GB Storage
-* NAT Network Adapter
-
-Installed Ubuntu Server and configured the initial user account.
+Built a Home Security Operations Center (SOC) using VirtualBox, Ubuntu Server, Wazuh, Microsoft Sysmon, and a Windows 11 endpoint. The project focused on deploying a SIEM, monitoring endpoint activity, collecting Windows security logs, integrating Sysmon telemetry, and analyzing security events through the Wazuh Dashboard.
 
 
+## Lab Architecture
 
-#### Step 4: Update Ubuntu
+```text
+Ubuntu Server
+│
+├── Wazuh Manager
+├── Wazuh Dashboard
+└── Wazuh Indexer
+        │
+        │
+Windows 11 Endpoint
+│
+├── Wazuh Agent
+├── Microsoft Sysmon
+└── Windows Event Logs
+```
 
-Updated all system packages to ensure a stable environment before installing Wazuh.
+
+## Technologies Used
+
+- VirtualBox
+- Ubuntu Linux
+- Windows 11
+- Wazuh
+- Sysmon
+- Linux Terminal
+- PowerShell
+
+
+## 1. Built the Wazuh Server
+
+Installed Ubuntu Server in VirtualBox.
+
+Updated the operating system.
 
 ```bash
 sudo apt update
 sudo apt upgrade -y
 ```
 
-
-
----
-
-### Phase 2: Install Wazuh
-
-#### Step 1: Download Wazuh Installer
-
-Downloaded the Wazuh all-in-one installation script.
-
-<img width="1280" height="854" alt="wazuh instalation" src="https://github.com/user-attachments/assets/1d8ff485-0f89-4c80-a885-95022f423ac9" />
+Installed the Wazuh platform.
 
 ```bash
 curl -sO https://packages.wazuh.com/4.12/wazuh-install.sh
 chmod +x wazuh-install.sh
-```
 
-#### Step 2: Install All-in-One Wazuh
-
-Installed:
-
-* Wazuh Manager
-* Wazuh Indexer
-* Wazuh Dashboard
-
-```bash
 sudo ./wazuh-install.sh -a
 ```
 
-
-
-#### Step 3: Save Credentials
-
-Recorded the Wazuh Dashboard credentials generated during installation.
-
-```text
-Username: admin
-Password: ********
-```
-
-#### Step 4: Access Dashboard
-
-Verified successful deployment of the Wazuh Dashboard and logged in through the web interface.
+Verified the Wazuh Dashboard was accessible.
 
 <img width="1280" height="854" alt="Ubuntu is running" src="https://github.com/user-attachments/assets/f293a316-5ad2-4191-b3f4-2e0d8e217412" />
 
 
-```bash
-hostname -I
-```
----
 
-### Phase 3: Create Windows Endpoint
+## 2. Created the Windows Endpoint
 
-#### Step 1: Create Windows 11 VM
+Installed Windows 11 in VirtualBox.
 
-Created a Windows 11 virtual machine using:
-
-* 8GB RAM
-* 4 CPUs
-* 50GB Storage
-
-Installed Windows 11 and completed the initial setup.
+Verified network connectivity between Windows and Ubuntu.
 
 
-#### Step 2: Verify Connectivity
 
-Verified communication between the Windows endpoint and Ubuntu Wazuh server using ping and network connectivity tests.
+## 3. Installed the Wazuh Agent
 
-
----
-
-### Phase 4: Install Wazuh Agent
-
-#### Step 1: Create Agent
-
-Created a Windows endpoint agent using the Wazuh Manager agent management utility.
+Created a Windows endpoint agent.
 
 ```bash
 sudo /var/ossec/bin/manage_agents
 ```
 
+Generated and imported the enrollment key.
 
+Configured the agent to communicate with the Wazuh Manager.
 
-#### Step 2: Generate Agent Key
+Troubleshot enrollment and connectivity issues involving:
 
-Generated an authentication key for the Windows endpoint.
-
-
-#### Step 3: Install Agent
-
-Installed the Wazuh Agent on Windows 11 and configured communication with the Wazuh Manager.
-
-
-#### Step 4: Troubleshoot Enrollment
-
-Investigated multiple enrollment and connectivity issues involving:
-
-* Network configuration
-* Agent authentication
-* Version compatibility
-* Manager communication
+- Network configuration
+- Agent authentication
+- Manager communication
 
 Reviewed:
 
@@ -163,84 +94,57 @@ ossec.conf
 client.keys
 ```
 
-
-
-#### Step 5: Configure Agent
-
-Updated the agent configuration to use the correct Wazuh Manager IP address.
+Updated the agent configuration.
 
 ```xml
-<address>10.0.2.4</address>
+<address>**.*.*.*</address>
 ```
 
-
-
-#### Step 6: Import Agent Key
-
-Imported the generated enrollment key into the Windows endpoint and restarted the Wazuh Agent service.
-
-
-
-#### Step 7: Verify Agent Connection
-
-Confirmed successful communication between the endpoint and manager.
-
-```text
-Connected to the server
-Agent is now online
-```
-
-
-
----
-
-### Phase 5: Verify Logs and Monitoring
-
-#### Step 1: Verify Active Agent
-
-Confirmed the Windows endpoint appeared as an active agent within Wazuh.
-
-```bash
-sudo /var/ossec/bin/agent_control -l
-```
+Verified the agent successfully connected.
 
 <img width="1531" height="920" alt="Agent connected" src="https://github.com/user-attachments/assets/ea2d8546-ce01-4417-9786-cb62bc21f52e" />
 
 
 
-#### Step 2: Review Security Events
+## 4. Installed Sysmon
 
-Accessed Wazuh Discover and reviewed incoming endpoint telemetry.
+Downloaded Sysmon.
+
+Installed Sysmon on the Windows endpoint.
+
+<img width="1024" height="822" alt="Starting sysmon" src="https://github.com/user-attachments/assets/1af7024d-5545-442f-8771-47894d3247f4" />
+
+Verified Sysmon was generating Windows security events.
 
 
 
-#### Step 3: Security Configuration Assessment
+## 5. Configured Sysmon Log Collection
 
-Reviewed Security Configuration Assessment (SCA) results generated against the Windows endpoint.
+Updated the Wazuh Agent configuration to collect Sysmon Operational logs.
+
+Restarted the Wazuh Agent.
+
+Verified Sysmon events were forwarded to the Wazuh Manager.
+
+<img width="1920" height="1005" alt="sysmon events are reaching wazuh" src="https://github.com/user-attachments/assets/62bf6c2a-d348-489c-acbe-7201b3350471" />
+
+
+## 6. Verified Monitoring
+
+Confirmed the Windows endpoint appeared as an active agent.
+
+Reviewed Windows Event Logs and Sysmon events in the Wazuh Dashboard.
+
+Generated PowerShell activity to confirm endpoint telemetry was being collected.
 
 
 
-#### Step 4: Dashboard Monitoring
 
-Verified endpoint visibility through the Wazuh Dashboard.
+# Skills Demonstrated
 
-<img width="1531" height="920" alt="Wazuh Sysmon SOC Setup - Google Chrome 6_16_2026 10_52_11 PM" src="https://github.com/user-attachments/assets/b2eaf3d3-9540-4b32-82f6-849a159787a6" />
-
----
-
-### Phase 6: Final Home SOC Architecture
-
-Completed a functioning Home SOC environment consisting of:
-
-* Ubuntu Server
-* Wazuh Manager
-* Wazuh Dashboard
-* Wazuh Indexer
-* Windows 11 Endpoint
-* Wazuh Agent
-* Centralized Log Collection
-* Security Configuration Assessment
-* Endpoint Monitoring
-* Security Event Analysis
-
-The completed Home SOC provides centralized visibility into endpoint activity and serves as a foundation for future enhancements including Sysmon integration, Red Team testing, custom detection rules, active response, and threat hunting exercises.
+- SIEM Deployment
+- Linux Administration
+- Windows Administration
+- Sysmon Deployment
+- Windows Event Collection
+- Network Troubleshooting
