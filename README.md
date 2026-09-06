@@ -2,24 +2,34 @@
 
 ## Overview
 
-Built a Home Security Operations Center using VirtualBox, Ubuntu Server, Wazuh, Microsoft Sysmon, and a Windows 11 endpoint. The project focused on deploying a SIEM, monitoring endpoint activity, collecting Windows security logs, integrating Sysmon telemetry, and analyzing security events through the Wazuh Dashboard.
+Built a Home Security Operations Center using VirtualBox, Kali Linux, Ubuntu Server, Wazuh, Microsoft Sysmon, and a Windows 11 endpoint. The project focused on deploying a SIEM, monitoring endpoint activity, collecting Windows security logs, integrating Sysmon telemetry, and analyzing security events through the Wazuh Dashboard.
 
 
 ## Lab Architecture
 
 ```text
-Ubuntu Server
-│
-├── Wazuh Manager
-├── Wazuh Dashboard
-└── Wazuh Indexer
-        │
-        │
-Windows 11 Endpoint
-│
-├── Wazuh Agent
-├── Microsoft Sysmon
-└── Windows Event Logs
+                    Internet
+                       │
+                      NAT
+                       │
+                ┌──────▼──────┐
+                │ Kali Linux  │
+                │ 10.0.2.15   │
+                │             │
+                │192.168.50.10│
+                └──────┬──────┘
+                       │
+                 HomeSOC LAN
+              192.168.50.0/24
+                  │         │
+          ┌───────▼───┐ ┌──▼──────────┐
+          │ Windows 11│ │ Ubuntu      │
+          │ .50.20    │ │ .50.30      │
+          │           │ │             │
+          │ Wazuh     │ │ Wazuh       │
+          │ Agent     │ │ Manager     │
+          │ Sysmon    │ │ Dashboard   │
+          └───────────┘ └─────────────┘
 ```
 
 
@@ -27,6 +37,7 @@ Windows 11 Endpoint
 
 - VirtualBox
 - Ubuntu Linux
+- Kali Linux
 - Windows 11
 - Wazuh
 - Sysmon
