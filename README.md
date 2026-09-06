@@ -150,6 +150,24 @@ Generated PowerShell activity to confirm endpoint telemetry was being collected.
 
 
 
+## 7. Connected Kali Linux
+
+Configured Kali Linux as the security testing machine within the HomeSOC LAN.
+
+Verified Kali Linux could communicate with the Windows 11 endpoint and Ubuntu Wazuh server.
+
+Tested connectivity using:
+
+```bash
+ping 192.168.50.20
+ping 192.168.50.30
+```
+
+Verified the network configuration and IP address:
+
+```bash
+ip addr
+```
 
 # Skills Learned
 
