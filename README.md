@@ -67,7 +67,7 @@ sudo ./wazuh-install.sh -a
 
 Verified the Wazuh Dashboard was accessible.
 
-<img width="1280" height="854" alt="Ubuntu is running" src="https://github.com/user-attachments/assets/f293a316-5ad2-4191-b3f4-2e0d8e217412" />
+<img width="600" alt="Ubuntu is running" src="https://github.com/user-attachments/assets/f293a316-5ad2-4191-b3f4-2e0d8e217412" />
 
 
 
@@ -113,8 +113,7 @@ Updated the agent configuration.
 
 Verified the agent successfully connected.
 
-<img width="1531" height="920" alt="Agent connected" src="https://github.com/user-attachments/assets/ea2d8546-ce01-4417-9786-cb62bc21f52e" />
-
+<img width="600" alt="Agent connected" src="https://github.com/user-attachments/assets/ea2d8546-ce01-4417-9786-cb62bc21f52e" />
 
 
 ## 4. Installed Sysmon
@@ -123,7 +122,7 @@ Downloaded Sysmon.
 
 Installed Sysmon on the Windows endpoint.
 
-<img width="1024" height="822" alt="Starting sysmon" src="https://github.com/user-attachments/assets/1af7024d-5545-442f-8771-47894d3247f4" />
+<img width="600" alt="Starting sysmon" src="https://github.com/user-attachments/assets/1af7024d-5545-442f-8771-47894d3247f4" />
 
 Verified Sysmon was generating Windows security events.
 
@@ -137,8 +136,7 @@ Restarted the Wazuh Agent.
 
 Verified Sysmon events were forwarded to the Wazuh Manager.
 
-<img width="1920" height="1005" alt="sysmon events are reaching wazuh" src="https://github.com/user-attachments/assets/62bf6c2a-d348-489c-acbe-7201b3350471" />
-
+<img width="600" alt="sysmon events are reaching wazuh" src="https://github.com/user-attachments/assets/62bf6c2a-d348-489c-acbe-7201b3350471" />
 
 ## 6. Verified Monitoring
 
